@@ -1,16 +1,26 @@
 ---
-title: "line graph avacado"
+title: "line graph avocado prices"
 author: "Marcus Minko"
 date: "4/18/2022"
 output: html_document
 ---
 
-```{r setup, include=FALSE}
+```{r data-packages}
 library(tidyverse)
 library(readr)
+
 avocado <- read_csv("avocado.csv")
 
+#Creating a line graph plotting the average avocado price by region in the US
 
+avocado$Date <- as.Date(avocado$Date)
+
+avocado %>%
+  filter(region == "Atlanta" | region == "Boston" | region == "SanFrancisco" | region == "Chicago" | region == "StLouis") %>% 
+  ggplot(aes(x = region, y = AveragePrice, color = region)) +
+  geom_boxplot() + 
+  labs(title = "Average Avocado Price $ by US City", subtitle = "2015 - 2018",
+       x = "US City", y = "Average Avocado Price", color = "US City") 
 ```
 
 
