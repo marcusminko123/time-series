@@ -1,0 +1,16 @@
+---
+title: "line graph avacado"
+author: "Marcus Minko"
+date: "4/18/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(readr)
+avocado <- read_csv("avocado.csv")
+
+
+```
+
+
